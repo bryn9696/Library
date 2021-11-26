@@ -8,7 +8,13 @@ describe Library do
 
   it 'can add a book to collection' do
     library = Library.new
-    book = Books.new  
+    book = double ('book')  
     expect(library.add(book)).to include(book)
+  end
+
+  it 'should list damaged books' do
+    library = Library.new
+    book = Books.new("Good book", "Good book writer", true)
+    expect(library.broken(book)).to include(book)
   end
 end
